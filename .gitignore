@@ -13,9 +13,9 @@ chrome-profiler-events*.json
 
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+!**/backend/.mvn/wrapper/maven-wrapper.jar
+!**/backend/src/main/**/target/
+!**/backend/src/test/**/target/
 
 ### STS ###
 .apt_generated
