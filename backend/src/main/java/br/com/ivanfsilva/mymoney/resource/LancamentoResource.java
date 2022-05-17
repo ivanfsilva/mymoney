@@ -9,6 +9,7 @@ import br.com.ivanfsilva.mymoney.exceptionHandler.MymoneyExceptionHandler;
 import br.com.ivanfsilva.mymoney.model.Lancamento;
 import br.com.ivanfsilva.mymoney.repository.LancamentoRepository;
 
+import br.com.ivanfsilva.mymoney.repository.filter.LancamentoFilter;
 import br.com.ivanfsilva.mymoney.service.LancamentoService;
 import br.com.ivanfsilva.mymoney.service.exception.PessoaInexistenteOuInativaException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,8 @@ public class LancamentoResource {
     private MessageSource messageSource;
 
     @GetMapping
-    public List<Lancamento> listar() {
-        return lancamentoRepository.findAll();
+    public List<Lancamento> pesquisar(LancamentoFilter lancamentoFilter) {
+        return lancamentoRepository.filtrar(lancamentoFilter);
     }
 
     @GetMapping("/{codigo}")
