@@ -3,6 +3,7 @@ package br.com.ivanfsilva.mymoney.resource;
 import br.com.ivanfsilva.mymoney.event.RecursoCriadoEvent;
 import br.com.ivanfsilva.mymoney.model.Pessoa;
 import br.com.ivanfsilva.mymoney.repository.PessoaRepository;
+import br.com.ivanfsilva.mymoney.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,9 @@ import java.util.Optional;
 public class PessoaResource {
     @Autowired
     private PessoaRepository pessoaRepository;
+
+    @Autowired
+    private PessoaService pessoaService;
 
     @Autowired
     private ApplicationEventPublisher publisher;
@@ -41,6 +45,12 @@ public class PessoaResource {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover(@PathVariable Long codigo) {
         this.pessoaRepository.deleteById(codigo);
+    }
+
+    @PutMapping("/{codigo}")
+    public ResponseEntity<Pessoa> atualizar(@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa) {
+        Pessoa pessoaSalva = pessoaService.atualizar(codigo, pessoa);
+        return ResponseEntity.ok(pessoaSalva);
     }
 
 }
