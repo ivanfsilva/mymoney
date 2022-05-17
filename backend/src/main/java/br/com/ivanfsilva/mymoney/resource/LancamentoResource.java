@@ -2,7 +2,6 @@ package br.com.ivanfsilva.mymoney.resource;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import br.com.ivanfsilva.mymoney.event.RecursoCriadoEvent;
 import br.com.ivanfsilva.mymoney.exceptionHandler.MymoneyExceptionHandler;
@@ -16,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -40,14 +41,8 @@ public class LancamentoResource {
     private MessageSource messageSource;
 
     @GetMapping
-    public List<Lancamento> pesquisar(LancamentoFilter lancamentoFilter) {
-        return lancamentoRepository.filtrar(lancamentoFilter);
-    }
-
-    @GetMapping("/{codigo}")
-    public ResponseEntity<Lancamento> buscarPeloCodigo(@PathVariable Long codigo) {
-        Optional<Lancamento> lancamento = lancamentoRepository.findById(codigo);
-        return lancamento.isPresent() ? ResponseEntity.ok(lancamento.get()) : ResponseEntity.notFound().build();
+    public Page<Lancamento> pesquisar(LancamentoFilter lancamentoFilter, Pageable pageable) {
+        return lancamentoRepository.filtrar(lancamentoFilter, pageable);
     }
 
     @PostMapping
