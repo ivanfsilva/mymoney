@@ -1,5 +1,7 @@
 package br.com.ivanfsilva.mymoney.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -52,6 +54,12 @@ public class Pessoa {
         this.ativo = ativo;
     }
 
+    @JsonIgnore
+    @Transient
+    public boolean isInativo() {
+        return !this.ativo;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -76,4 +84,5 @@ public class Pessoa {
             return false;
         return true;
     }
+
 }
