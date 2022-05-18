@@ -10,6 +10,7 @@ import br.com.ivanfsilva.mymoney.model.Lancamento;
 import br.com.ivanfsilva.mymoney.repository.LancamentoRepository;
 
 import br.com.ivanfsilva.mymoney.repository.filter.LancamentoFilter;
+import br.com.ivanfsilva.mymoney.repository.projection.ResumoLancamento;
 import br.com.ivanfsilva.mymoney.service.LancamentoService;
 import br.com.ivanfsilva.mymoney.service.exception.PessoaInexistenteOuInativaException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,12 @@ public class LancamentoResource {
     @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')")
     public Page<Lancamento> pesquisar(LancamentoFilter lancamentoFilter, Pageable pageable) {
         return lancamentoRepository.filtrar(lancamentoFilter, pageable);
+    }
+
+    @GetMapping(params = "resumo")
+    @PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and hasAuthority('SCOPE_read')")
+    public Page<ResumoLancamento> resumir(LancamentoFilter lancamentoFilter, Pageable pageable) {
+        return lancamentoRepository.resumir(lancamentoFilter, pageable);
     }
 
     @GetMapping("/{codigo}")
