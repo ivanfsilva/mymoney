@@ -3,8 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { TabViewModule } from 'primeng/tabview';
 import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
+import {TableModule} from "primeng/table";
 
 import { AppComponent } from './app.component';
+
 
 
 @NgModule({
@@ -17,6 +19,7 @@ import { AppComponent } from './app.component';
     ButtonModule,
     InputTextModule,
     TabViewModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
