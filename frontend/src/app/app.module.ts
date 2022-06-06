@@ -21,6 +21,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
 import {InputMaskModule} from "primeng/inputmask";
 import {FormsModule} from "@angular/forms";
 import { MessageComponent } from './message/message.component';
+import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MessageComponent } from './message/message.component';
     PessoasPesquisaComponent,
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
-    MessageComponent
+    MessageComponent,
+    LancamentosGridComponent
   ],
   imports: [
     BrowserModule,
