@@ -18,6 +18,7 @@ import {SelectButtonModule} from "primeng/selectbutton";
 import {DropdownModule} from "primeng/dropdown";
 import {InputNumberModule} from "primeng/inputnumber";
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import {InputMaskModule} from "primeng/inputmask";
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     SelectButtonModule,
     DropdownModule,
     InputNumberModule,
+    InputMaskModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
