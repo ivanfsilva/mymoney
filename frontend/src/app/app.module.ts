@@ -19,6 +19,7 @@ import {DropdownModule} from "primeng/dropdown";
 import {InputNumberModule} from "primeng/inputnumber";
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import {InputMaskModule} from "primeng/inputmask";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {InputMaskModule} from "primeng/inputmask";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
 
     ButtonModule,
     InputTextModule,

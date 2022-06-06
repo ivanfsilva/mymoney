@@ -22,7 +22,17 @@
       </div>
       <div class="col-8 p-md-9 p-fluid">
         <label>Descrição</label>
-        <input pInputText type="text">
+        <input pInputText type="text" name="descricao"
+               ngModel #descricao="ngModel" required minlength="5">
+
+        <span *ngIf="descricao.hasError('required') && descricao.dirty"
+              class="p-message p-message-error">
+            Informe uma descrição
+          </span>
+        <span *ngIf="descricao.hasError('minlength') && descricao.dirty"
+              class="p-message p-message-error">
+            Mínimo de {{ descricao.errors?.['minlength']?.requiredLength }} caracteres. Você digitou apenas {{ descricao.errors?.['minlength']?.actualLength }}
+          </span>
       </div>
       <div class="col-4 p-md-3 p-fluid">
         <label>Valor</label>
