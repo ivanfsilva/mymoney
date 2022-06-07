@@ -15,6 +15,7 @@ import {SelectButtonModule} from "primeng/selectbutton";
 import {DropdownModule} from "primeng/dropdown";
 import {InputNumberModule} from "primeng/inputnumber";
 import {InputMaskModule} from "primeng/inputmask";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import {InputMaskModule} from "primeng/inputmask";
     DropdownModule,
     InputNumberModule,
     InputMaskModule,
+
+    SharedModule,
   ],
   exports: [
     LancamentoCadastroComponent,
