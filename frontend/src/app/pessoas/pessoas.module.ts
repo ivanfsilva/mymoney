@@ -20,7 +20,8 @@ import {PessoaCadastroComponent} from "./pessoa-cadastro/pessoa-cadastro.compone
     PessoasPesquisaComponent
   ],
   exports: [
-    PessoaCadastroComponent
+    PessoaCadastroComponent,
+    PessoasPesquisaComponent
   ],
   imports: [
     CommonModule,
